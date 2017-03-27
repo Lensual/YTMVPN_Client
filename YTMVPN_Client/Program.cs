@@ -9,14 +9,24 @@ namespace YTMVPN_Client
     {
         static void Main(string[] args)
         {
-            Socket clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+            //初始化Socket
+            Socket authSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+            Socket dataSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
 
-            byte[] buffer = new byte[233];
-            EndPoint remoteEP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 52145);
+            //认证
+            byte[] authBuffer = new byte[1];  //测试认证 将会忽略
+            EndPoint authServerEP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 52146);
+
+
+            //数据
+            byte[] dataBuffer = new byte[6];  //测试数据 2地址 2端口 2数据
+            EndPoint dataServerEP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 52146);
 
             while (true)
             {
-                clientSocket.SendTo(buffer, remoteEP);
+
+                authSocket.SendTo(authBuffer, authServerEP);
+                dataSocket.SendTo(dataBuffer, dataServerEP);
                 Thread.Sleep(1000);
             }
 
