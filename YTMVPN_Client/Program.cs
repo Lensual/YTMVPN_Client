@@ -15,7 +15,7 @@ namespace YTMVPN_Client
 
             //认证
             byte[] authBuffer = new byte[1];  //测试认证 将会忽略
-            EndPoint authServerEP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 52146);
+            EndPoint authServerEP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 52145);
 
 
             //数据
