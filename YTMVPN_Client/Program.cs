@@ -19,7 +19,7 @@ namespace YTMVPN_Client
 
 
             //数据
-            byte[] dataBuffer = new byte[6];  //测试数据 2地址 2端口 2数据
+            byte[] dataBuffer = new byte[6] { 0xFF, 0x00, 0xFF, 0x00, 0xAB, 0xCD };  //测试数据 目标地址 源地址 目标端口 源端口 2Byte数据
             EndPoint dataServerEP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 52146);
 
             while (true)
