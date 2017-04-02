@@ -9,7 +9,7 @@ using YTMVPN_Server.Service.Routing;
 
 namespace YTMVPN_Server
 {
-    static class DataReceiver
+    static class DataSender
     {
         private static Socket dataSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
         public static Socket DataSocket { get { return dataSocket; } }
